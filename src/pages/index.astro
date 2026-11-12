@@ -1,0 +1,160 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Icon from '../components/Icon.astro';
+const endpoint = import.meta.env.PUBLIC_FORMSPREE_ENDPOINT || '';
+const services = [
+  { number: '01', icon: 'brain', title: 'Rozwiązania AI', desc: 'Asystenci i agenci AI, którzy rozumieją kontekst Twojej firmy, wspierają zespół i pomagają szybciej docierać do informacji.', tags: ['Asystenci AI', 'Agenci AI', 'RAG i wiedza firmowa'] },
+  { number: '02', icon: 'workflow', title: 'Automatyzacja procesów', desc: 'Łączymy narzędzia i eliminujemy ręczne, powtarzalne zadania. Procesy działają sprawniej, a ludzie mogą skupić się na ważniejszej pracy.', tags: ['Workflow', 'n8n / Make', 'Automatyzacje'] },
+  { number: '03', icon: 'link', title: 'Integracje systemów', desc: 'Sprawiamy, że systemy wymieniają dane bez zbędnego przepisywania. CRM, ERP, formularze, dokumenty i aplikacje w jednym ekosystemie.', tags: ['API', 'CRM / ERP', 'Integracje'] },
+  { number: '04', icon: 'chart', title: 'Strategia i doradztwo AI', desc: 'Pomagamy wybrać właściwe przypadki użycia, ocenić potencjał i zaplanować wdrożenie, które ma uzasadnienie biznesowe.', tags: ['Audyt procesów', 'Warsztaty', 'Roadmapa AI'] }
+];
+const useCases = [
+  { title: 'Obsługa zapytań', desc: 'Klasyfikacja wiadomości, przygotowanie odpowiedzi i przekazywanie spraw do właściwych osób.', metric: 'Mniej ręcznej obsługi' },
+  { title: 'Dokumenty i wiedza', desc: 'Wyszukiwanie informacji w dokumentach, podsumowania i ekstrakcja danych z plików.', metric: 'Szybszy dostęp do wiedzy' },
+  { title: 'Raportowanie', desc: 'Zbieranie danych z wielu źródeł i cykliczne raporty gotowe do analizy.', metric: 'Mniej pracy operacyjnej' },
+  { title: 'Sprzedaż i CRM', desc: 'Porządkowanie leadów, wzbogacanie rekordów i automatyczne zadania follow-up.', metric: 'Spójniejszy proces' }
+];
+---
+<BaseLayout>
+  <div class="ambient ambient-one"></div>
+  <div class="ambient ambient-two"></div>
+  <header class="site-header" data-header>
+    <div class="container nav-wrap">
+      <a class="brand" href="#top" aria-label="ArPa.ai — strona główna">
+        <span class="brand-mark"><span></span><span></span><span></span></span>
+        <span>ArPa<span class="brand-dot">.ai</span></span>
+      </a>
+      <nav class="desktop-nav" aria-label="Nawigacja główna">
+        <a href="#oferta">Oferta</a><a href="#mozliwosci">Możliwości</a><a href="#proces">Proces</a><a href="#kontakt">Kontakt</a>
+      </nav>
+      <a class="nav-cta" href="#kontakt">Porozmawiajmy <Icon name="arrow" size={15}/></a>
+      <button class="menu-button" type="button" aria-label="Otwórz menu" aria-expanded="false" data-menu-button><Icon name="menu" size={22}/></button>
+    </div>
+    <nav class="mobile-nav" data-mobile-menu aria-label="Menu mobilne">
+      <a href="#oferta">Oferta</a><a href="#mozliwosci">Możliwości</a><a href="#proces">Proces</a><a href="#kontakt">Kontakt</a>
+    </nav>
+  </header>
+
+  <main id="top">
+    <section class="hero section-shell">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <div class="eyebrow"><span class="eyebrow-pulse"></span> INTELIGENTNIEJ. PROŚCIEJ. SZYBCIEJ.</div>
+          <h1>AI, które daje<br/>Twojej firmie <span class="gradient-text">przewagę.</span></h1>
+          <p class="hero-lead">Projektujemy i wdrażamy AI oraz automatyzacje, które usprawniają codzienną pracę, uwalniają potencjał zespołów i pomagają rozwijać biznes.</p>
+          <div class="hero-actions">
+            <a class="button button-primary" href="#kontakt">Porozmawiajmy o AI <Icon name="arrow" size={17}/></a>
+            <a class="button button-ghost" href="#oferta">Poznaj nasze podejście <span class="play-icon">↓</span></a>
+          </div>
+          <div class="hero-proof">
+            <div class="proof-icon"><Icon name="shield" size={18}/></div>
+            <p><strong>Technologia z konkretnym celem.</strong><br/><span>Najpierw potrzeby biznesu, potem właściwe rozwiązanie.</span></p>
+          </div>
+        </div>
+        <div class="hero-visual" aria-label="Ilustracja przepływu automatyzacji AI">
+          <div class="visual-orbit orbit-a"></div><div class="visual-orbit orbit-b"></div>
+          <div class="visual-core"><div class="core-inner"><span class="core-symbol">✳</span><span class="core-label">ARPA INTELLIGENCE</span></div></div>
+          <div class="visual-node node-top"><span class="node-icon"><Icon name="brain" size={18}/></span><span><b>AI ENGINE</b><small>Analiza i decyzje</small></span><i></i></div>
+          <div class="visual-node node-right"><span class="node-icon"><Icon name="workflow" size={18}/></span><span><b>WORKFLOWS</b><small>Procesy w ruchu</small></span><i></i></div>
+          <div class="visual-node node-bottom"><span class="node-icon"><Icon name="chart" size={18}/></span><span><b>BUSINESS DATA</b><small>Wyniki i wnioski</small></span><i></i></div>
+          <div class="visual-node node-left"><span class="node-icon"><Icon name="link" size={18}/></span><span><b>INTEGRATIONS</b><small>Połączone systemy</small></span><i></i></div>
+          <div class="visual-caption"><span class="live-dot"></span> SYSTEMY, KTÓRE WSPÓŁPRACUJĄ</div>
+        </div>
+      </div>
+      <div class="container hero-bottom"><span>AI DLA BIZNESU</span><span class="hero-line"></span><span>MAŁE I ŚREDNIE FIRMY</span><span class="hero-line"></span><span>WIĘKSZE ORGANIZACJE</span></div>
+    </section>
+
+    <section class="intro section-pad" data-reveal>
+      <div class="container intro-grid">
+        <p class="section-kicker">01 / NASZA FILOZOFIA</p>
+        <div><h2>Nie wdrażamy AI<br/>dla samego <span class="muted-gradient">AI.</span></h2><p class="intro-text">Szukamy miejsc, w których technologia naprawdę robi różnicę. Uporządkowany proces, dobrze dobrana automatyzacja i AI osadzone w realiach firmy — to połączenie, które przekłada się na codzienną wartość.</p></div>
+      </div>
+    </section>
+
+    <section class="services section-pad" id="oferta">
+      <div class="container">
+        <div class="section-heading" data-reveal><div><p class="section-kicker">02 / CO ROBIMY</p><h2>Technologia, która<br/><span class="gradient-text">pracuje na biznes.</span></h2></div><p class="section-aside">Od pierwszego pomysłu i audytu, przez projekt, aż po wdrożenie i dalszy rozwój.</p></div>
+        <div class="service-grid">
+          {services.map((service) => <article class="service-card" data-reveal>
+            <div class="service-top"><span class="service-number">{service.number}</span><span class="service-icon"><Icon name={service.icon} size={23}/></span></div>
+            <h3>{service.title}</h3><p>{service.desc}</p>
+            <div class="tag-list">{service.tags.map((tag) => <span>{tag}</span>)}</div>
+            <a class="card-arrow" href="#kontakt" aria-label={`Zapytaj o usługę: ${service.title}`}><Icon name="arrow" size={18}/></a>
+          </article>)}
+        </div>
+      </div>
+    </section>
+
+    <section class="possibilities section-pad" id="mozliwosci">
+      <div class="container">
+        <div class="section-heading" data-reveal><div><p class="section-kicker">03 / GDZIE AI POMAGA</p><h2>Od codziennych zadań<br/>do <span class="gradient-text">większych zmian.</span></h2></div><p class="section-aside">Technologia powinna zdejmować z zespołu ciężar powtarzalnych czynności i dawać przestrzeń na rozwój.</p></div>
+        <div class="usecase-layout">
+          <div class="usecase-feature" data-reveal>
+            <div class="feature-glow"></div><div class="feature-top"><span class="feature-label">BUSINESS AUTOMATION</span><span class="feature-status"><i></i> CONNECTED</span></div>
+            <div class="flow-diagram">
+              <div class="flow-card"><span class="flow-card-icon"><Icon name="mail" size={19}/></span><b>Źródło danych</b><small>Wiadomość / plik / CRM</small></div>
+              <div class="flow-connector"><span></span><span></span><span></span></div>
+              <div class="flow-card flow-ai"><span class="flow-card-icon"><Icon name="spark" size={19}/></span><b>AI + automatyzacja</b><small>Analiza · decyzja · działanie</small></div>
+              <div class="flow-connector"><span></span><span></span><span></span></div>
+              <div class="flow-card"><span class="flow-card-icon"><Icon name="check" size={19}/></span><b>Gotowy rezultat</b><small>Wynik w Twoim systemie</small></div>
+            </div>
+            <p class="feature-note">Przykładowy przepływ automatyzacji — dopasowywany do procesu i narzędzi firmy.</p>
+          </div>
+          <div class="usecase-list">
+            {useCases.map((item, i) => <article class="usecase-item" data-reveal><span class="usecase-index">0{i+1}</span><div><h3>{item.title}</h3><p>{item.desc}</p><span class="usecase-metric">{item.metric}</span></div><Icon name="arrow" size={18}/></article>)}
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="process section-pad" id="proces">
+      <div class="container">
+        <div class="section-heading" data-reveal><div><p class="section-kicker">04 / JAK DZIAŁAMY</p><h2>Od wyzwania do<br/><span class="gradient-text">działającego rozwiązania.</span></h2></div><p class="section-aside">Pracujemy etapami. Wiesz, co robimy, dlaczego to robimy i jaki jest kolejny krok.</p></div>
+        <div class="process-grid">
+          <article class="process-step" data-reveal><span class="step-no">01</span><div class="step-line"></div><h3>Rozpoznanie</h3><p>Poznajemy firmę, procesy i wyzwania. Wspólnie identyfikujemy obszary z największym potencjałem.</p></article>
+          <article class="process-step" data-reveal><span class="step-no">02</span><div class="step-line"></div><h3>Projekt</h3><p>Dobieramy technologię, definiujemy zakres i planujemy rozwiązanie z uwzględnieniem bezpieczeństwa danych.</p></article>
+          <article class="process-step" data-reveal><span class="step-no">03</span><div class="step-line"></div><h3>Wdrożenie</h3><p>Budujemy, integrujemy i testujemy. Rozwiązanie trafia do codziennego środowiska pracy.</p></article>
+          <article class="process-step" data-reveal><span class="step-no">04</span><div class="step-line"></div><h3>Rozwój</h3><p>Obserwujemy działanie, zbieramy informacje zwrotne i rozwijamy automatyzację wraz z potrzebami firmy.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta-band" data-reveal>
+      <div class="container cta-inner"><div><p class="section-kicker">ZACZNIJMY OD ROZMOWY</p><h2>Masz proces, który<br/>można zrobić <span class="gradient-text">mądrzej?</span></h2></div><a class="button button-primary" href="#kontakt">Porozmawiajmy <Icon name="arrow" size={17}/></a><div class="cta-orb"></div></div>
+    </section>
+
+    <section class="contact section-pad" id="kontakt">
+      <div class="container contact-grid">
+        <div class="contact-copy" data-reveal><p class="section-kicker">05 / KONTAKT</p><h2>Opowiedz nam<br/>o swoim <span class="gradient-text">wyzwaniu.</span></h2><p>Nie musisz mieć gotowego pomysłu na wdrożenie. Wystarczy, że pokażesz nam, co dziś zajmuje czas Twojego zespołu.</p>
+          <div class="contact-direct"><span class="contact-icon"><Icon name="mail" size={19}/></span><div><small>NAPISZ DO NAS</small><a href="mailto:kontakt@arpa.ai">kontakt@arpa.ai</a></div></div>
+          <p class="contact-note">Odpowiadamy na wiadomości w dni robocze.</p>
+        </div>
+        <form class="contact-form" data-contact-form data-endpoint={endpoint} data-reveal>
+          <div class="form-heading"><span>FORMULARZ KONTAKTOWY</span><span class="form-required">* pola wymagane</span></div>
+          <div class="form-row"><label>Imię i nazwisko *<input name="name" type="text" autocomplete="name" placeholder="Jak się nazywasz?" required minlength="2"/></label><label>Firma<input name="company" type="text" autocomplete="organization" placeholder="Nazwa firmy"/></label></div>
+          <div class="form-row"><label>E-mail *<input name="email" type="email" autocomplete="email" placeholder="adres@firma.pl" required/></label><label>Telefon<input name="phone" type="tel" autocomplete="tel" placeholder="+48 000 000 000"/></label></div>
+          <label>W czym możemy pomóc? *<select name="topic" required><option value="" disabled selected>Wybierz temat</option><option>Automatyzacja procesów</option><option>Asystent lub agent AI</option><option>Integracja systemów</option><option>Strategia i konsultacje AI</option><option>Nie wiem — potrzebuję rozmowy</option></select></label>
+          <label>Wiadomość *<textarea name="message" rows="4" placeholder="Opowiedz krótko o swoim wyzwaniu..." required minlength="10"></textarea></label>
+          <label class="consent"><input type="checkbox" name="consent" value="yes" required/><span>Wyrażam zgodę na kontakt w sprawie mojego zapytania. Zapoznałem/am się z <a href="/polityka-prywatnosci">polityką prywatności</a>. *</span></label>
+          <button class="button button-primary form-submit" type="submit">Wyślij wiadomość <Icon name="arrow" size={17}/></button>
+          <p class="form-status" data-form-status role="status" aria-live="polite"></p>
+          <small class="form-privacy">Twoje dane wykorzystamy wyłącznie do obsługi zapytania.</small>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-main"><a class="brand" href="#top"><span class="brand-mark"><span></span><span></span><span></span></span><span>ArPa<span class="brand-dot">.ai</span></span></a><p>Inteligentne rozwiązania.<br/>Realna wartość dla biznesu.</p><div class="footer-links"><a href="#oferta">Oferta</a><a href="#mozliwosci">Możliwości</a><a href="#kontakt">Kontakt</a><a href="/polityka-prywatnosci">Prywatność</a></div></div>
+    <div class="container footer-bottom"><span>© <span data-year>2026</span> ArPa.ai. Wszystkie prawa zastrzeżone.</span><span>Designed for a smarter tomorrow <span class="footer-star">✳</span></span></div>
+  </footer>
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "name": "ArPa.ai",
+    "url": "https://arpa.ai",
+    "description": "Projektowanie i wdrażanie rozwiązań AI, automatyzacji procesów i integracji systemów dla firm.",
+    "areaServed": { "@type": "Country", "name": "Polska" },
+    "serviceType": ["Wdrożenia AI", "Automatyzacja procesów biznesowych", "Integracje systemów", "Doradztwo AI"]
+  })}></script>
+</BaseLayout>
